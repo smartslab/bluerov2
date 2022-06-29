@@ -7,28 +7,39 @@
     Look into the sensor macros in the package uuv_sensor_ros_plugins/urdf for
     more examples or add you own custom sensor units.
   -->
-
+  
   <!-- Mount a Pose 3D sensor. -->
-  <xacro:default_pose_3d namespace="${namespace}" parent_link="${namespace}/base_link" />
-
+  <!--<xacro:default_pose_3d namespace="${namespace}" parent_link="${namespace}/base_link" />-->
+  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/snippets.xacro"/> 
+  
   <!-- IMU Sensor -->
-  <xacro:default_imu namespace="${namespace}" parent_link="${namespace}/base_link">
+  <xacro:default_imu_macro
+    namespace="${namespace}"
+    parent_link="${namespace}/base_link"
+    inertial_reference_frame="world">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:default_imu>
+  </xacro:default_imu_macro>
 
   <!-- Pressure Sensor  -->
   <xacro:default_pressure namespace="${namespace}" parent_link="${namespace}/base_link">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </xacro:default_pressure>
 
-  <!-- Beacon Sensor  -->
+  <!-- Beacon Sensor  
   <xacro:default_beacon namespace="${namespace}" parent_link="${namespace}/base_link">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:default_beacon>
+  </xacro:default_beacon> -->
 
   <!-- Mount a camera -->
-  <!-- <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="front">
-    <origin xyz="0 0 0.2" rpy="0 0 0"/>
-  </xacro:default_camera> -->
+  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="right">
+    <origin xyz=".23 -0.18 0.03" rpy="0 0.4 0.0"/>
+  </xacro:default_camera>
+
+  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
+    <origin xyz=".23 0.18 0.03" rpy="0 0.4 -0.0"/>
+  </xacro:default_camera>
 
 </robot>
+
+
+

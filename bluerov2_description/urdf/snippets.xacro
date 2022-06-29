@@ -12,13 +12,13 @@
     Thruster macro with integration of joint and link. The thrusters should
     be initialized in the actuators.xacro file.
   -->
-  <xacro:macro name="thruster_macro" params="robot_namespace thruster_id *origin">
+  <!-- <xacro:macro name="thruster_macro" params="robot_namespace thruster_id *origin"> -->
     <!--
     Dummy link as place holder for the thruster frame,
     since thrusters can often be inside the collision geometry
     of the vehicle and may cause internal collisions if set otherwise
     -->
-    <link name="${robot_namespace}/thruster_${thruster_id}">
+   <!--  <link name="${robot_namespace}/thruster_${thruster_id}">
 
       <visual>
         <geometry>
@@ -33,28 +33,28 @@
                iyy="0.000000017" iyz="0.0"
                izz="0.000000017" />
       </inertial>
-    </link>
+    </link> -->
 
     <!-- Joint between thruster link and vehicle base link -->
-    <joint name="${robot_namespace}/thruster_${thruster_id}_joint" type="continuous">
+    <!-- <joint name="${robot_namespace}/thruster_${thruster_id}_joint" type="continuous">
       <xacro:insert_block name="origin" />
       <axis xyz="1 0 0" />
       <parent link="${robot_namespace}/base_link" />
       <child link="${robot_namespace}/thruster_${thruster_id}" />
-    </joint>
+    </joint> -->
 
-    <!-- From desistek underwater vehicle -->
-    <gazebo>
+    <!-- From desistek underwater vehicle 
+    <gazebo> -->
       <!-- Thruster ROS plugin -->
-     <plugin name="${robot_namespace}_${thruster_id}_thruster_model" filename="libthruster_ros_plugin.so">
+     <!-- <plugin name="${robot_namespace}_${thruster_id}_thruster_model" filename="libthruster_ros_plugin.so"> -->
        <!-- Name of the thruster link -->
-       <linkName>${robot_namespace}/thruster_${thruster_id}</linkName>
+       <!-- <linkName>${robot_namespace}/thruster_${thruster_id}</linkName> -->
        <!-- Name of the joint between thruster and vehicle base link -->
-       <jointName>${robot_namespace}/thruster_${thruster_id}_joint</jointName>
+       <!-- <jointName>${robot_namespace}/thruster_${thruster_id}_joint</jointName> -->
        <!-- Make the thruster aware of its id -->
-       <thrusterID>${thruster_id}</thrusterID>
+       <!-- <thrusterID>${thruster_id}</thrusterID> -->
        <!-- Gain of the input command signal -->
-       <gain>1</gain>
+       <!-- <gain>1</gain> -->
        <!-- Maximum allowed input value for the input signal for thruster unit -->
        <!-- <clampMax>0</clampMax> -->
        <!-- Minimum allowed value for the input signal for thruster unit -->
@@ -66,26 +66,26 @@
        Value from 0 to 1 to set the efficiency of the output thrust force
        Default value is 1.0
        -->
-       <thrust_efficiency>1</thrust_efficiency>
+       <!-- <thrust_efficiency>1</thrust_efficiency> -->
        <!--
        Value from 0 to 1 to set the efficiency of the propeller as a factor
        to be multiplied to the current value of the state variable at each
        iteration.
        Default value is 1.0
        -->
-       <propeller_efficiency>1</propeller_efficiency>
+       <!-- <propeller_efficiency>1</propeller_efficiency> -->
 
        <!-- 2) First order model -->
-       <dynamics>
+       <!-- <dynamics>
          <type>FirstOrder</type>
          <timeConstant>0.2</timeConstant>
        </dynamics>
 
        <conversion>
          <type>Basic</type>
-         <rotorConstant>0.00001</rotorConstant>
+         <rotorConstant>0.00001</rotorConstant> -->
          <!-- <rotorConstant>0</rotorConstant> -->
-       </conversion>
+       <!-- </conversion>
 
      </plugin>
    </gazebo>
@@ -94,5 +94,5 @@
       <selfCollide>false</selfCollide>
     </gazebo>
 
-  </xacro:macro>
+  </xacro:macro> -->
 </robot>

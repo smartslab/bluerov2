@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- Loading some constants -->
-  <xacro:include filename="$(find uuv_descriptions)/models/common/urdf/common.urdf.xacro"/>
+  <xacro:include filename="$(find uuv_descriptions)/urdf/common.urdf.xacro"/>
   <!-- Loading file with sensor macros -->
   <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/sensor_snippets.xacro"/>
+  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/snippets.xacro"/> 
+  
   <!-- Loading vehicle's specific macros -->
   <xacro:include filename="$(find bluerov2_description)/urdf/snippets.xacro"/>
 
@@ -21,7 +23,7 @@
   <xacro:property name="z_size" value="0.28066"/>
   <!-- minion_usv_height is not really! It's just for run... We need first calculate the Fossen parameters -->
   <!-- Volume -->
-  <xacro:property name="volume" value="0.011054"/>
+  <xacro:property name="volume" value="0.0299753"/>
   <!-- Center of gravity -->
   <xacro:property name="cog" value="0 0 0"/>
   <!--
@@ -79,11 +81,31 @@
         </visual>
 
         <!-- In rexrov2_base they made collision planes to minize the GPU load -->
-        <!-- <collision>
+        <collision>
           <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="${collision_mesh_file}" scale="1 1 1" />
           </geometry>
+        </collision>
+        <!-- <collision>
+          <origin xyz="0 0 -0.75" rpy="0 0 0"/>
+          <geometry>
+           <box size="2.56 1.50 0.10"/>
+          </geometry>
+        </collision> -->
+        <!-- top plate -->
+        <!-- <collision>
+          <origin xyz="0 0 0.60" rpy="0 0 0"/>
+          <geometry><box size="2.56 1.50 0.40"/></geometry>
+        </collision> -->
+        <!-- left / right sides -->
+        <!-- <collision>
+          <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
+          <geometry><box size="2.20 0.10 1.10"/></geometry>
+        </collision>
+        <collision>
+           <origin xyz="-0.20 -0.70 -0.15" rpy="0 0 0"/>
+           <geometry><box size="2.20 0.10 1.10"/></geometry>
         </collision> -->
 
       </link>

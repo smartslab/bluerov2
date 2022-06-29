@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <node ns="bluerov2/stereo_image_proc" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen"> 
+    	<param name="approximate_sync" value="true"/> 
+    	<param name="queue_size" value="10"/> 
+    
+    	<remap from="left/image_raw" to="/bluerov2/bluerov2/cameraleft/camera_image"/> 
+    	<remap from="right/image_raw" to="/bluerov2/bluerov2/cameraright/camera_image"/> 
+    	<remap from="right/camera_info" to="/bluerov2/bluerov2/cameraright/camera_info"/> 
+    	<remap from="left/camera_info" to="/bluerov2/bluerov2/cameraleft/camera_info"/> 
+    </node>
+</launch>

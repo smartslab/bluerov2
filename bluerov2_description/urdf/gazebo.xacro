@@ -6,7 +6,7 @@
     <!-- List of hydrodynamic models this robot's links -->
     <link name="${namespace}/base_link">
       <!-- This flag will make the link neutrally buoyant -->
-      <neutrally_buoyant>0</neutrally_buoyant>
+      <neutrally_buoyant>1</neutrally_buoyant>
       <!-- Link's volume -->
       <volume>${volume}</volume>
       <!-- Link's bounding box, it is used to recalculate the immersed
@@ -29,20 +29,41 @@
           <type>fossen</type>
           <!-- Added mass: see p.28 in Berg2012 -->
           <added_mass>
-            1.7182 0 0 0 0 0
+            <!-- 779.79 -6.8773 -103.32  8.5426 -165.54 -7.8033
+           -6.8773    1222   51.29  409.44 -5.8488  62.726
+           -103.32   51.29  3659.9  6.1112 -386.42  10.774
+           8.5426  409.44  6.1112   534.9 -10.027  21.019
+           -165.54 -5.8488 -386.42 -10.027  842.69 -1.1162
+           -7.8033  62.726  10.775  21.019 -1.1162  224.32 -->
+            <!-- 1.7182 0 0 0 0 0
             0 0 0 0 0 0
             0 0 5.468 0 0 0
             0 0 0 0 0 0
             0 0 0 0 1.2481 0
-            0 0 0 0 0 0.4006
+            0 0 0 0 0 0.4006 -->
+            <!-- 20 0 0 0 0 0
+            0 20 0 0 0 0
+            0 0 20 0 0 0
+            0 0 0 30 0 0
+            0 0 0 0 30 0
+            0 0 0 0 0 30 -->
+            11.985 -0.091 -0.105 0.039 0.308 0.012
+            0.149 20.261 -0.147 0.085 -0.013 -0.785
+            0.111 -0.129 67.141 -0.033 2.530 0.064
+            0.122 0.319 -0.056 0.385 0.003 -0.011
+            0.407 -0.001 2.543 -0.002 0.791 0.002
+            -0.003 -0.758 0.064 -0.003 -0.004 0.138
           </added_mass>
+          
           <!--
             The linear damping coefficients can be provided as a diagonal (6 elements)
             or a full matrix (36 coefficients), like the added-mass coefficients above
             Linear damping: see p.31 in Berg2012
           -->
           <linear_damping>
+            <!-- -74.82 -69.48 -728.4 -268.8 -309.77 -105 -->
             -11.7391 -20 -31.8678 -25 -44.9085 -5
+            <!-- -20.63 -54.03 -61.05 -50 -50 -26.90-->
           </linear_damping>
           <!--
             The linear damping coefficients proportional to the forward speed
@@ -50,16 +71,17 @@
             like the added-mass coefficients above.
             This matrix is mostly useful for slender bodies (e.g. AUVs with torpedo shape)
           -->
-          <!-- <linear_damping_forward_speed>
-            0 0 0 0 0 0
-          </linear_damping_forward_speed> -->
+          <linear_damping_forward_speed>            
+            0 0 0 0 0 0 
+          </linear_damping_forward_speed> 
           <!--
             The quadratic damping coefficients can be provided as a diagonal (6 elements)
             or a full matrix (36 coefficients), like the added-mass coefficients above
             Non-linear damping: see p.30 in Berg2012
           -->
           <quadratic_damping>
-            0 0 0 0 0 0
+            -748.22 -992.53 -1821.01 -672 -774.44 -523.27
+            <!-- -151.83 -270.15 -176.54 -200 -200 -17.52 -->
           </quadratic_damping>
 
           <!--
