@@ -81,32 +81,32 @@
         </visual>
 
         <!-- In rexrov2_base they made collision planes to minize the GPU load -->
-        <collision>
+        <!--<collision>
           <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="${collision_mesh_file}" scale="1 1 1" />
           </geometry>
-        </collision>
-        <!-- <collision>
-          <origin xyz="0 0 -0.75" rpy="0 0 0"/>
+        </collision>-->
+        <collision>
+          <origin xyz="0 0 -0.14033" rpy="0 0 0"/>
           <geometry>
-           <box size="2.56 1.50 0.10"/>
+           <box size="0.448 0.2384 0.010"/>
           </geometry>
-        </collision> -->
+        </collision>
         <!-- top plate -->
-        <!-- <collision>
-          <origin xyz="0 0 0.60" rpy="0 0 0"/>
-          <geometry><box size="2.56 1.50 0.40"/></geometry>
-        </collision> -->
+        <collision>
+          <origin xyz="0 0 0.14033" rpy="0 0 0"/>
+          <geometry><box size="0.448 0.2384 0.010"/></geometry>
+        </collision>
         <!-- left / right sides -->
-        <!-- <collision>
-          <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
-          <geometry><box size="2.20 0.10 1.10"/></geometry>
+        <collision>
+          <origin xyz="-0 0.1192 0" rpy="0 0 0"/>
+          <geometry><box size="0.448 0.010 0.28066"/></geometry>
         </collision>
         <collision>
-           <origin xyz="-0.20 -0.70 -0.15" rpy="0 0 0"/>
-           <geometry><box size="2.20 0.10 1.10"/></geometry>
-        </collision> -->
+           <origin xyz="-0 -0.1192 0" rpy="0 0 0"/>
+           <geometry><box size="0.448 0.010 0.28066"/></geometry>
+        </collision>
 
       </link>
 

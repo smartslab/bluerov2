@@ -38,6 +38,15 @@
   <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
     <origin xyz=".23 0.18 0.03" rpy="0 0.4 -0.0"/>
   </xacro:default_camera>
+  
+  <!-- for balance -->
+  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="backright">
+    <origin xyz="-.23 -0.18 0.03" rpy="0 0.4 0.0"/>
+  </xacro:default_camera>
+
+  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="backleft">
+    <origin xyz="-.23 0.18 0.03" rpy="0 0.4 -0.0"/>
+  </xacro:default_camera>
 
 </robot>
 
