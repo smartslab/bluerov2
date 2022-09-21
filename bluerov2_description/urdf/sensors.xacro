@@ -9,7 +9,7 @@
   -->
   
   <!-- Mount a Pose 3D sensor. -->
-  <!--<xacro:default_pose_3d namespace="${namespace}" parent_link="${namespace}/base_link" />-->
+  <xacro:default_pose_3d namespace="${namespace}" parent_link="${namespace}/base_link" />
   <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/snippets.xacro"/> 
   
   <!-- IMU Sensor -->
@@ -47,6 +47,10 @@
   <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="backleft">
     <origin xyz="-.23 0.18 0.03" rpy="0 0.4 -0.0"/>
   </xacro:default_camera>
+  
+  <!--<xacro:light_link_macro namespace="${namespace}" parent_link="${namespace}/base_link" suffix="1">
+    <origin xyz=".23 -0.18 0.03" rpy="0 0 0"/>
+  </xacro:light_link_macro>-->
 
 </robot>
 

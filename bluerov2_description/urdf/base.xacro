@@ -31,7 +31,7 @@
   The original values, [0.0822, -0.00773, 0.3872] however, seem to
   assume NWU (otherwise cob is below cog?). 0.155
   -->
-  <xacro:property name="cob" value="0 0 0"/>
+  <xacro:property name="cob" value="0 0 .16"/>
   <!-- Fluid density -->
   <xacro:property name="rho" value="1028"/>
   <!--
@@ -107,12 +107,49 @@
            <origin xyz="-0 -0.1192 0" rpy="0 0 0"/>
            <geometry><box size="0.448 0.010 0.28066"/></geometry>
         </collision>
-
       </link>
 
     <gazebo reference="${namespace}/base_link">
+      <light type="spot" name="light1">
+        <cast_shadows>0</cast_shadows>
+        <pose>.23 0.18 0.03 0 -1.5707 -0.0</pose>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>1 1 1 1</specular>
+        <intensity>10</intensity>
+        <attenuation>
+          <range>20.0</range>
+          <constant>0.0</constant>
+          <linear>.03</linear>
+        </attenuation>
+        <spot>
+          <inner_angle>2.356</inner_angle>
+          <outer_angle>3.1415</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+      </light>
+      <light type="spot" name="light2">
+        <cast_shadows>0</cast_shadows>
+        <pose>.23 -0.18 0.03 0 -1.5707 -0.0</pose>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>1 1 1 1</specular>
+        <intensity>10</intensity>
+        <attenuation>
+          <range>20.0</range>
+          <constant>0.0</constant>
+          <linear>.03</linear>
+        </attenuation>
+        <spot>
+          <inner_angle>2.356</inner_angle>
+          <outer_angle>3.1415</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+      </light>
       <selfCollide>false</selfCollide>
     </gazebo>
+    
+
 
     <!-- Set up hydrodynamic plugin given as input parameter -->
     <xacro:insert_block name="gazebo"/>
